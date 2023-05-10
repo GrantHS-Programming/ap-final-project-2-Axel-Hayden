@@ -17,16 +17,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     private void FixedUpdate() {
-        if (movementInput != Vector2.zero) {
-        int count = rb.Cast(
-            movementInput,movementFilter,castCollisions,moveSpeed * Time.fixedDeltaTime +collisionOffset);
+        if (movementInput != Vector2.zero){
+            int count = rb.Cast(movementInput,movementFilter,castCollisions,moveSpeed * Time.fixedDeltaTime +collisionOffset);
+            if (count == 0) {
+                rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+            }
         }
     }
 
