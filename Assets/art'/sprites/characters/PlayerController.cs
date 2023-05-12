@@ -5,28 +5,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    public float collisionOffset = 0.05f;
-    public ContactFilter2D movementFilter;
-    Vector2 movementInput;
-    Rigidbody2D rb;
-    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    // Start is called before the first frame update
+    public float moveSpeed = 5f;
+    public Rigidbody2D rb;
+    Vector2 moveDirection;
+    
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
+    void Update() {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(moveX, moveY).normalized;
+    }
     private void FixedUpdate() {
-        if (movementInput != Vector2.zero){
-            int count = rb.Cast(movementInput,movementFilter,castCollisions,moveSpeed * Time.fixedDeltaTime +collisionOffset);
-            if (count == 0) {
-                rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
-            }
-        }
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
-
-    void ObMove(InputValue movementValue) {
-        movementInput = movementValue.Get<Vector2>();
-    }
+    
 }
