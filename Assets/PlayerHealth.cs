@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour
 	private void Start()
 	{
 		health = maxHealth;
-		healthSlider.maxValue = maxHealth;
 	}
 
 	public void UpdateHealth(float mod)
@@ -34,6 +33,5 @@ public class PlayerHealth : MonoBehaviour
 	private void OnGUI()
 	{
 		float t = Time.deltaTime / 1f;
-		healthSlider.value = Mathf.Lerp(healthSlider.value, health, t);
 	}
 }
