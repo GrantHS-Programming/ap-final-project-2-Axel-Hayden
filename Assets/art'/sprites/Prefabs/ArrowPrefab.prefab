@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2517374552241888327}
   - component: {fileID: 8744689015974559145}
   - component: {fileID: 8812289924924960661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArrowPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.25}
+  m_Size: {x: 0.1, y: 0.1}
   m_Direction: 0
 --- !u!50 &8744689015974559145
 Rigidbody2D:
@@ -111,7 +111,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7702013631789057565}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
